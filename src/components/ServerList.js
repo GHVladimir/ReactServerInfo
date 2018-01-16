@@ -8,7 +8,8 @@ class ServerList extends Component {
     const columns = [{
       Header: 'ID',
       headerClassName: 'header-width',
-      accessor: 'id'
+      accessor: 'id',
+      minWidth: 10
     }, {
       Header: 'NAME',
       headerClassName: 'header-width',
@@ -16,7 +17,7 @@ class ServerList extends Component {
     }, {
       Header: 'AVERAGE UPTIME',
       headerClassName: 'header-width',
-      accessor: 'active-up-time',
+      accessor: 'average-uptime',
       Cell: row => (
         <div><MdAccessTime className='icons-margin' />{row.value}</div>
       )
