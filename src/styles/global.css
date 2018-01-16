@@ -1,0 +1,117 @@
+.table-base {
+    border-radius: 3px;
+    background-color: #ffffff ;
+    box-shadow: 0 0 3px 0 #e4eaee ;
+}
+
+.table-row-bg{
+  background: #F6FAFD;
+} 
+
+table {
+    background: #fff;
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    text-align: left;
+    padding: 8px;
+}
+
+thead tr{
+    height: 50px;
+    background: #BABAB8;
+}
+
+tr:nth-child(even) {
+    background-color: #f3f3f3;
+}
+
+.table-row-bg-selected{
+    background: #DBEFFF !important;
+}
+
+.home{
+    color: #fff;
+    margin-left: 50px;
+    font-size: 15px;
+}
+
+.navbar-brand{
+    text-align: right;
+}
+
+.map{
+    height: 500px;
+    width: 100%;
+}
+
+.detail-table{
+    margin-bottom: 30px;
+}
+
+.header-width{
+    height: 40px;
+    text-align: left;
+}
+
+.heading-list{
+    margin: 10px 0;
+    text-align: center;
+}
+
+.icons-margin{
+    margin-right: 20px;  
+}
+
+.icons{
+    margin-left: 20px;    
+    position: relative;
+    bottom: 6px;
+}
+
+.circle-green{
+    -webkit-border-radius:8px;
+    -moz-border-radius:8px;
+    border-radius:8px;
+    border:1px solid #ccc;
+    width:8px;
+    height:8px;
+    margin-top: 7px;
+    background:  #00B388;
+}
+
+.circle-grey{
+    -webkit-border-radius:8px;
+    -moz-border-radius:8px;
+    border-radius:8px;
+    border:1px solid #ccc;
+    width:8px;
+    height:8px;
+    margin-top: 7px;
+    background:  #CCCCCC;
+}
+
+.circle-orange{
+    -webkit-border-radius:8px;
+    -moz-border-radius:8px;
+    border-radius:8px;
+    border:1px solid #ccc;
+    width:8px;
+    height:8px;
+    margin-top: 7px;
+    background:  #ED8B00;
+}
+
+.circle-red{
+    -webkit-border-radius:8px;
+    -moz-border-radius:8px;
+    border-radius:8px;
+    border:1px solid #ccc;
+    width:8px;
+    height:8px;
+    margin-top: 7px;
+    background:  #BF0D3E;
+}

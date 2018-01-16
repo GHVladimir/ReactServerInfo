@@ -1,0 +1,14 @@
+import { infoFetchDataSuccess } from '../../actions/index';
+import { info } from '../../reducers/info';
+
+describe('info reducer', () => {
+  const data = [{ "id": "1", "createdAt": 1516103821, "name": "Server 1", "message": "Message number 1", "state": "Active", "active-up-time": "20:1:30", "ip": "192.168.10.1", "last-seen": "some date", "location": { "lat": 55.716759, "lng": 12.4507052 } }, { "id": "2", "createdAt": 1516103761, "name": "Server 2", "message": "Message number 2", "state": "Active", "active-up-time": "20:2:30", "ip": "192.168.10.1", "last-seen": "some date", "location": { "lat": 55.716759, "lng": 12.4507052 } }, { "id": "3", "createdAt": 1516103701, "name": "Server 3", "message": "Message number 3", "state": "Active", "active-up-time": "20:3:30", "ip": "192.168.10.1", "last-seen": "some date", "location": { "lat": 55.716759, "lng": 12.4507052 } }, { "id": "4", "createdAt": 1516103641, "name": "Server 4", "message": "Message number 4", "state": "Active", "active-up-time": "20:4:30", "ip": "192.168.10.1", "last-seen": "some date", "location": { "lat": 55.716759, "lng": 12.4507052 } }, { "id": "5", "createdAt": 1516103581, "name": "Server 5", "message": "Message number 5", "state": "Active", "active-up-time": "20:5:30", "ip": "192.168.10.1", "last-seen": "some date", "location": { "lat": 55.716759, "lng": 12.4507052 } }, { "id": "6", "createdAt": 1516103521, "name": "Server 6", "message": "Message number 6", "state": "Active", "active-up-time": "20:6:30", "ip": "192.168.10.1", "last-seen": "some date", "location": { "lat": 55.716759, "lng": 12.4507052 } }, { "id": "7", "createdAt": 1516103461, "name": "Server 7", "message": "Message number 7", "state": "Active", "active-up-time": "20:7:30", "ip": "192.168.10.1", "last-seen": "some date", "location": { "lat": 55.716759, "lng": 12.4507052 } }, { "id": "8", "createdAt": 1516103401, "name": "Server 8", "message": "Message number 8", "state": "Active", "active-up-time": "20:8:30", "ip": "192.168.10.1", "last-seen": "some date", "location": { "lat": 55.716759, "lng": 12.4507052 } }, { "id": "9", "createdAt": 1516103341, "name": "Server 9", "message": "Message number 9", "state": "Active", "active-up-time": "20:9:30", "ip": "192.168.10.1", "last-seen": "some date", "location": { "lat": 55.716759, "lng": 12.4507052 } }, { "id": "10", "createdAt": 1516103281, "name": "Server 10", "message": "Message number 10", "state": "Active", "active-up-time": "20:10:30", "ip": "192.168.10.1", "last-seen": "some date", "location": { "lat": 55.716759, "lng": 12.4507052 } }];
+  it('should handle INFO_FETCH_DATA_SUCCESS', () => {
+    expect(
+      info(
+        [],
+        infoFetchDataSuccess(data)
+      )
+    ).toEqual(data);
+  });
+});
