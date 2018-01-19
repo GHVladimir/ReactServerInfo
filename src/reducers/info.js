@@ -1,3 +1,5 @@
+import { parseDuration } from '../helpers';
+
 export const infoHasErrored = (state = false, action) => {
   switch (action.type) {
     case 'INFO_HAS_ERRORED':
@@ -11,17 +13,24 @@ export const infoIsLoading = (state = false, action) => {
   switch (action.type) {
     case 'INFO_IS_LOADING':
       return action.isLoading;
-
     default:
       return state;
   }
 }
 
-export const info = (state = [], action) => {
+export const getInfo = (state = [], action) => {
   switch (action.type) {
     case 'INFO_FETCH_DATA_SUCCESS':
-      return action.info;
-
+      {
+        const { info } = action;
+        return info.map(item => {
+          return Object.assign({}, item,
+            {
+              uptime: parseDuration(item['average-uptime'])
+            }
+          )
+        });
+      }
     default:
       return state;
   }

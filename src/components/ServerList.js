@@ -4,27 +4,38 @@ import { withRouter } from 'react-router-dom';
 import MdAccessTime from 'react-icons/lib/md/access-time';
 
 class ServerList extends Component {
+  navigateToDetails(data) {
+    this.props.history.push({
+      pathname: '/detail',
+      search: '?id=' + data.id,
+      state: { data }
+    });
+  }
   render() {
     const columns = [{
       Header: 'ID',
-      headerClassName: 'header-width',
+      headerClassName: 'header-height',
       accessor: 'id',
       minWidth: 10
     }, {
       Header: 'NAME',
-      headerClassName: 'header-width',
-      accessor: 'name'
+      headerClassName: 'header-height',
+      accessor: 'name',
+      minWidth: 50,
     }, {
       Header: 'AVERAGE UPTIME',
-      headerClassName: 'header-width',
-      accessor: 'average-uptime',
+      headerClassName: 'header-height',
+      accessor: 'uptime',
+      sortable: false,
       Cell: row => (
         <div><MdAccessTime className='icons-margin' />{row.value}</div>
       )
-    }, {
+    },
+    {
       Header: 'STATUS',
-      headerClassName: 'header-width',
+      headerClassName: 'header-height',
       accessor: 'state',
+      minWidth: 50,
       Cell: row => {
         switch (row.value) {
           case 'Active':
@@ -43,22 +54,18 @@ class ServerList extends Component {
       }
     }]
 
-
     return (
       <div>
         <h1 className='heading-list'>Servers list</h1>
         <ReactTable className='-highlight -striped'
           pageSize='10'
+          showPageSizeOptions={false}
           data={this.props.data}
           columns={columns}
           getTdProps={(state, rowInfo, column, instance) => {
             return {
               onClick: (e, handleOriginal) => {
-                this.props.history.push({
-                  pathname: '/detail',
-                  search: '?id=' + rowInfo.original.id,
-                  state: { data: rowInfo.original }
-                });
+                this.navigateToDetails(rowInfo.original);
                 if (handleOriginal) {
                   handleOriginal()
                 }

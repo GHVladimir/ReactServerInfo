@@ -8,7 +8,7 @@ export default class Details extends Component {
     const fields = [];
     let i = 0;
     Object.keys(data).forEach((key) => {
-      if (key !== 'location' && key !== 'createdAt') {
+      if (key !== 'location' && key !== 'createdAt' && key !== 'average-uptime') {
         fields.push(
           <tr key={i}>
             <td>{key}</td>

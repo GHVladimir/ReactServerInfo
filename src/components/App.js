@@ -6,7 +6,6 @@ import ServerList from './ServerList';
 import Details from './Details';
 import Header from './Header';
 import { infoFetchData } from '../actions';
-import '../styles/loader.css';
 import '../styles/global.css';
 import '../styles/bootswatch.css';
 import 'react-table/react-table.css'
@@ -43,19 +42,15 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state, props) => {
-  return {
-    info: state.info,
-    error: state.infoHasErrored,
-    isLoading: state.infoIsLoading
-  };
-}
+const mapStateToProps = ({ getInfo, infoHasErrored, infoIsLoading }) => ({
+  info: getInfo,
+  hasErrored: infoHasErrored,
+  isLoading: infoIsLoading
+});
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    fetchData: (url) => dispatch(infoFetchData(url))
-  };
-}
+const mapDispatchToProps = (dispatch) => ({
+  fetchData: (url) => dispatch(infoFetchData(url))
+})
 
 export default connect(
   mapStateToProps,

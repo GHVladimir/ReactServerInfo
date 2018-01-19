@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import { info, infoHasErrored, infoIsLoading } from './info';
+import { getInfo, infoHasErrored, infoIsLoading } from './info';
 
 export default combineReducers({
-  info,
+  getInfo,
   infoHasErrored,
   infoIsLoading
 });

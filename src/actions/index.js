@@ -1,40 +1,36 @@
-export function infoFetchData(url) {
-  return (dispatch) => {
-    dispatch(infoIsLoading(true));
+import axios from 'axios';
 
-    fetch(url)
-      .then((response) => {
-        if (!response.ok) {
-          throw Error(response.statusText);
-        }
+axios.interceptors.request.use(function (config) {
+ // do something in the interceptor
+  return config;
+});
 
-        dispatch(infoIsLoading(false));
+export const infoFetchData = (url) => (dispatch) => {
+  dispatch(infoIsLoading(true));
+  axios.get(url)
+    .then((response) => {
+      if (response.status !== 200) {
+        throw Error(response.statusText);
+      }
+      dispatch(infoIsLoading(false));
+      return response;
+    })
+    .then((info) => dispatch(infoFetchDataSuccess(info.data)))
+    .catch((err) => dispatch(infoHasErrored(true)));
+};
 
-        return response;
-      })
-      .then((response) => response.json())
-      .then((info) => dispatch(infoFetchDataSuccess(info)))
-      .catch((err) => dispatch(infoHasErrored(true)));
-  };
-}
+export const infoHasErrored = (hasErrored) => ({
+  type: 'INFO_HAS_ERRORED',
+  hasErrored
+});
 
-export function infoHasErrored(hasErrored) {
-  return {
-    type: 'INFO_HAS_ERRORED',
-    hasErrored
-  };
-}
+export const infoIsLoading = (isLoading) => ({
+  type: 'INFO_IS_LOADING',
+  isLoading
+});
 
-export function infoIsLoading(isLoading) {
-  return {
-    type: 'INFO_IS_LOADING',
-    isLoading
-  };
-}
 
-export function infoFetchDataSuccess(info) {
-  return {
-    type: 'INFO_FETCH_DATA_SUCCESS',
-    info
-  };
-}
+export const infoFetchDataSuccess = (info) => ({
+  type: 'INFO_FETCH_DATA_SUCCESS',
+  info
+});
