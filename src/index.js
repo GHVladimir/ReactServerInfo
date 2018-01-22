@@ -7,7 +7,7 @@ import configureStore from './store/configureStore';
 
 const element = document.getElementById('root');
 if (!element) {
-  throw new Error("couldn't find element with id root")
+  throw new Error("couldn't find element with id root");
 }
 
 const store = configureStore();
@@ -16,5 +16,6 @@ render(
   <Provider store={store}>
     <App />
   </Provider>,
-  element
+  element,
 );
+

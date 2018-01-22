@@ -17,7 +17,7 @@ const mapMarker = {
   color: '#3f51b5',
   fontSize: 16,
   fontWeight: 'bold',
-  padding: 4
+  padding: 4,
 };
 
-export { mapMarker };
+export default { mapMarker };

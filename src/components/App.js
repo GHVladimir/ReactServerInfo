@@ -1,14 +1,15 @@
+import 'react-table/react-table.css';
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import '../styles/global.css';
+import '../styles/bootswatch.css';
 
 import ServerList from './ServerList';
 import Details from './Details';
 import Header from './Header';
 import { infoFetchData } from '../actions';
-import '../styles/global.css';
-import '../styles/bootswatch.css';
-import 'react-table/react-table.css'
 
 class App extends Component {
   componentDidMount() {
@@ -16,43 +17,48 @@ class App extends Component {
   }
 
   render() {
-    const ServerListPage = () => {
-      return (
-        <ServerList data={this.props.info} />
-      )
-    }
+    const ServerListPage = () => (
+      <ServerList data={this.props.info} />);
 
     if (this.props.hasErrored) {
       return <p>Sorry! There was an error loading the items</p>;
     }
 
     if (this.props.isLoading) {
-      return <div className="loader"></div>;
+      return <div className="loader" />;
     }
 
     return (
       <Router>
-        <div className='container'>
+        <div className="container">
           <Header />
-          <Route exact path='/' component={ServerListPage} />
-          <Route path='/detail' component={Details} />
+          <Route exact path="/" component={ServerListPage} />
+          <Route path="/detail" component={Details} />
         </div>
       </Router>
-    )
+    );
   }
 }
+
+App.propTypes = {
+  fetchData: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  hasErrored: PropTypes.bool.isRequired,
+  /* eslint-disable */
+  info: PropTypes.array.isRequired,
+};
 
 const mapStateToProps = ({ getInfo, infoHasErrored, infoIsLoading }) => ({
   info: getInfo,
   hasErrored: infoHasErrored,
-  isLoading: infoIsLoading
+  isLoading: infoIsLoading,
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  fetchData: (url) => dispatch(infoFetchData(url))
-})
+const mapDispatchToProps = dispatch => ({
+  fetchData: url => dispatch(infoFetchData(url)),
+});
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
-)(App)
+  mapDispatchToProps,
+)(App);

@@ -5,7 +5,7 @@ describe('root reducer', () => {
     expect(reducer({}, { type: '@@INIT' })).toEqual({
       info: [],
       infoIsLoading: false,
-      infoHasErrored: false
+      infoHasErrored: false,
     });
   });
 });

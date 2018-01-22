@@ -4,15 +4,15 @@ import { shallow } from 'enzyme';
 
 import App from '../../components/App';
 
-const setup = (setupProps = {}) => {
+const setup = (() => {
   const store = configureStore()();
   const wrapper = shallow(<App store={store} />);
 
   return {
     store,
-    wrapper
+    wrapper,
   };
-};
+});
 
 describe('App', () => {
   test('renders without crashing', () => {
