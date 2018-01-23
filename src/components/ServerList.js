@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import ReactTable from 'react-table';
 import { withRouter } from 'react-router-dom';
 import MdAccessTime from 'react-icons/lib/md/access-time';
-import PropTypes from 'prop-types';
 
 class ServerList extends Component {
   navigateToDetails(data) {
+    // eslint-disable-next-line
     this.props.history.push({
       pathname: '/detail',
       search: `?id=${data.id}`,
@@ -62,6 +62,7 @@ class ServerList extends Component {
           className="-highlight -striped"
           pageSize="10"
           showPageSizeOptions={false}
+          // eslint-disable-next-line
           data={this.props.data}
           columns={columns}
           getTdProps={(state, rowInfo) => ({
@@ -77,12 +78,6 @@ class ServerList extends Component {
     );
   }
 }
-
-ServerList.propTypes = {
-  /* eslint-disable */
-  history: PropTypes.array.isRequired,
-  data: PropTypes.object.isRequired,
-};
 
 const ServerListWithRouter = withRouter(ServerList);
 export default ServerListWithRouter;

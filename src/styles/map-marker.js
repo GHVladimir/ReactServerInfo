@@ -20,4 +20,4 @@ const mapMarker = {
   padding: 4,
 };
 
-export default { mapMarker };
+export default mapMarker;

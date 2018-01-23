@@ -1,4 +1,4 @@
-import { parseDuration } from '../helpers';
+import parseDuration from '../helpers';
 
 export const infoHasErrored = (state = false, action) => {
   switch (action.type) {

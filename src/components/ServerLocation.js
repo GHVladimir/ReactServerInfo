@@ -1,12 +1,13 @@
 import React from 'react';
 import GoogleMapReact from 'google-map-react';
 
-import { mapMarker } from '../styles/map-marker';
+import mapMarker from '../styles/map-marker';
 
-/* eslint-disable */
+// eslint-disable-next-line
 const SomeComponent = ({ text }) => <div style={mapMarker}>{text}</div>;
 
 const ServerLocation = (props) => {
+  // eslint-disable-next-line
   const { data } = props;
   return (
     <div className="map">

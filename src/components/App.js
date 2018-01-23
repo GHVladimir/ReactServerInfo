@@ -44,7 +44,7 @@ App.propTypes = {
   fetchData: PropTypes.func.isRequired,
   isLoading: PropTypes.bool.isRequired,
   hasErrored: PropTypes.bool.isRequired,
-  /* eslint-disable */
+  // eslint-disable-next-line
   info: PropTypes.array.isRequired,
 };
 

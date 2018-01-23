@@ -1,15 +1,16 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import ServerLocation from './ServerLocation';
 
 const Details = (props) => {
+  // eslint-disable-next-line
   const { data } = props.location.state;
+  const properties = data.location;
   const fields = [];
   let i = 0;
   Object.keys(data).forEach((key) => {
     if (key !== 'location' && key !== 'createdAt' && key !== 'average-uptime') {
-      /* eslint-disable */
+      // eslint-disable-next-line
       fields.push(
         <tr key={i}>
           <td>{key}</td>
@@ -26,17 +27,9 @@ const Details = (props) => {
           {fields}
         </tbody>
       </table>
-      <ServerLocation data={this.props.location.state.data.location} />
+      <ServerLocation data={properties} />
     </div>
   );
-};
-
-Details.propTypes = {
-  location: PropTypes.shape({
-    state: PropTypes.shape({
-      data: PropTypes.object.isRequired,
-    }),
-  }).isRequired,
 };
 
 export default Details;
