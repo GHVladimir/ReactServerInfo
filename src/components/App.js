@@ -2,7 +2,6 @@ import 'react-table/react-table.css';
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import '../styles/global.css';
 import '../styles/bootswatch.css';
 
@@ -11,6 +10,7 @@ import Details from './Details';
 import Header from './Header';
 import { infoFetchData } from '../actions';
 
+/* eslint-disable */
 class App extends Component {
   componentDidMount() {
     this.props.fetchData('http://5a5da501d748830012334ec7.mockapi.io/servers');
@@ -39,14 +39,6 @@ class App extends Component {
     );
   }
 }
-
-App.propTypes = {
-  fetchData: PropTypes.func.isRequired,
-  isLoading: PropTypes.bool.isRequired,
-  hasErrored: PropTypes.bool.isRequired,
-  // eslint-disable-next-line
-  info: PropTypes.array.isRequired,
-};
 
 const mapStateToProps = ({ getInfo, infoHasErrored, infoIsLoading }) => ({
   info: getInfo,

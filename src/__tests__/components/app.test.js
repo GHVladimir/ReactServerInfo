@@ -15,7 +15,7 @@ const setup = (() => {
 });
 
 describe('App', () => {
-  test('renders without crashing', () => {
+  test('should render without crashing', () => {
     const { wrapper } = setup();
     expect(wrapper).toMatchSnapshot();
   });

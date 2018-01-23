@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App renders without crashing 1`] = `
+exports[`App should render without crashing 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -9,8 +9,8 @@ ShallowWrapper {
   },
   "length": 1,
   "node": <App
-    error={undefined}
     fetchData={[Function]}
+    hasErrored={undefined}
     info={undefined}
     isLoading={undefined}
     store={
@@ -44,8 +44,8 @@ ShallowWrapper {
 />,
   "nodes": Array [
     <App
-      error={undefined}
       fetchData={[Function]}
+      hasErrored={undefined}
       info={undefined}
       isLoading={undefined}
       store={
@@ -122,8 +122,8 @@ ShallowWrapper {
         "selector": Object {
           "error": null,
           "props": Object {
-            "error": undefined,
             "fetchData": [Function],
+            "hasErrored": undefined,
             "info": undefined,
             "isLoading": undefined,
             "store": Object {
@@ -184,8 +184,8 @@ ShallowWrapper {
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <App
-          error={undefined}
           fetchData={[Function]}
+          hasErrored={undefined}
           info={undefined}
           isLoading={undefined}
           store={
@@ -219,8 +219,8 @@ ShallowWrapper {
 />,
         "_debugID": 2,
         "_renderedOutput": <App
-          error={undefined}
           fetchData={[Function]}
+          hasErrored={undefined}
           info={undefined}
           isLoading={undefined}
           store={
